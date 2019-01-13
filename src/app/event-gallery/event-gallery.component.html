@@ -1,0 +1,19 @@
+<h1 class="gallery-header">Main events happening in your city</h1>
+<div class="gallery-wrapper">
+  <div class="gallery-container">
+    <div class="grid-container">
+      <!-- <article *ngFor="let item of gallery" class="card-grid">
+        <a class="card-grid__title" href="#"> {{ item.name }}</a>
+
+        <div class="card-grid__image">
+          <a href="#"> <img [src]="item.imageUrl" alt="san francisco" /> </a>
+        </div>
+      </article> -->
+      <app-gallery-item
+        *ngFor="let event of events"
+        [event]="event"
+      ></app-gallery-item>
+    </div>
+    <!-- end grid container -->
+  </div>
+</div>

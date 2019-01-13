@@ -1,0 +1,29 @@
+@import "../../partials/variables";
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: map-get($map: $colors, $key: black);
+  li {
+    float: left;
+    a {
+      display: block;
+      color: map-get($map: $colors, $key: white);
+      text-align: center;
+      padding: 2.4rem 1.6rem;
+      text-decoration: none;
+      &:hover:not(.active) {
+        background-color: map-get($map: $colors, $key: red);
+      }
+    }
+  }
+  li.right {
+    float: right;
+  }
+}
+
+.active {
+  background-color: map-get($map: $colors, $key: red);
+}

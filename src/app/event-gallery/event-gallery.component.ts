@@ -15,7 +15,11 @@ export class EventGalleryComponent implements OnInit {
       id: 1,
       name: "Metaldays",
       date: "January 17",
-      location: "Texas CA",
+      location: {
+        name: "Texas CA",
+        lat: 31.96,
+        lng: 99.9
+      },
       imageUrl: "./assets/th1.jpg",
       ticketsAvailable: true,
       description:
@@ -25,7 +29,11 @@ export class EventGalleryComponent implements OnInit {
       id: 2,
       name: "Big Day Out",
       date: "January 18",
-      location: "Dallas SF",
+      location: {
+        name: "Dallas SF",
+        lat: 32.77,
+        lng: 96.7
+      },
       imageUrl: "./assets/th2.jpg",
       ticketsAvailable: true,
       description:
@@ -35,7 +43,11 @@ export class EventGalleryComponent implements OnInit {
       id: 3,
       name: "C2C Country to Country",
       date: "January 18",
-      location: "Washington DC",
+      location: {
+        name: "Washington DC",
+        lat: 47.75,
+        lng: 120.74
+      },
       imageUrl: "./assets/th3.jpg",
       ticketsAvailable: true,
       description:
@@ -45,7 +57,11 @@ export class EventGalleryComponent implements OnInit {
       id: 4,
       name: "Electric Love",
       date: "January 17",
-      location: "Phoenix",
+      location: {
+        name: "Phoeniz AZ",
+        lat: 33.44,
+        lng: 112.07
+      },
       imageUrl: "./assets/th4.jpg",
       ticketsAvailable: true,
       description:
@@ -55,7 +71,11 @@ export class EventGalleryComponent implements OnInit {
       id: 5,
       name: "Urban Beach Week Usual",
       date: "January 17",
-      location: "Sacremento",
+      location: {
+        name: "Sacremento",
+        lat: 38.58,
+        lng: 121.49
+      },
       imageUrl: "./assets/th5.jpg",
       ticketsAvailable: true,
       description:
@@ -65,7 +85,11 @@ export class EventGalleryComponent implements OnInit {
       id: 6,
       name: "Round Up Visual Country",
       date: "January 17",
-      location: "California",
+      location: {
+        name: "California",
+        lat: 36.77,
+        lng: 119.41
+      },
       imageUrl: "./assets/th6.jpg",
       ticketsAvailable: false,
       description:

@@ -3,9 +3,16 @@
     <a routerLink="/">Home</a>
   </li>
   <li routerLinkActive="active"><a [routerLink]="['/events']">Events</a></li>
-  <li routerLinkActive="active">
+  <li *ngIf="(auth.user$ | async) as user" routerLinkActive="active">
     <a [routerLink]="['/manage']">Admin Event Dashboard</a>
   </li>
-  <li class="right"><a href="#logout">Logout</a></li>
-  <li class="right"><a href="#login">Login</a></li>
+  <li *ngIf="(auth.user$ | async) as user" class="right">
+    <a (click)="logout()">Logout</a>
+  </li>
+  <li *ngIf="(auth.user$ | async) as user" class="right">
+    <a>Welcome , {{ user.displayName }}</a>
+  </li>
+  <li *ngIf="!(auth.user$ | async) as user" class="right">
+    <a [routerLink]="['/login']">Login</a>
+  </li>
 </ul>

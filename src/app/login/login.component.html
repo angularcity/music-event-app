@@ -1,0 +1,13 @@
+<div class="login">
+  <h1>Login to Evently</h1>
+  <form (ngSubmit)="onLogin(f)" #f="ngForm" class="login-form">
+    <input placeholder="Username" type="text" name="email" ngModel />
+    <input placeholder="Password" type="password" name="password" ngModel />
+    <button class="sign-in" type="submit">
+      Login <i class="fas fa-key"></i>
+    </button>
+    <button (click)="onGoogle()" class="google" type="button">
+      <i class="fab fa-google"></i>
+    </button>
+  </form>
+</div>

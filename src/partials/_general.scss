@@ -21,6 +21,17 @@ body {
   color: map-get($map: $colors, $key: white);
   display: inline-block;
   margin-top: 10px;
+  max-width: 88px;
+  cursor: pointer;
+  border: none;
+}
+.booking {
+  background-color: map-get($map: $colors, $key: red);
+  color: map-get($map: $colors, $key: white);
+  cursor: pointer;
+  border: none;
+  text-transform: uppercase;
+  padding: 2rem;
 }
 
 // font-family: 'Nanum Pen Script', cursive;

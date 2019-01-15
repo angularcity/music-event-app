@@ -1,0 +1,43 @@
+:host {
+  display: flex;
+  height: calc(100vh - 124px);
+  align-items: center;
+  justify-content: center;
+
+  background-image: linear-gradient(
+    to right,
+    #5b5651,
+    #77573c,
+    #96532c,
+    #b74724,
+    #db2828
+  );
+}
+.login-form {
+  height: 50px;
+  display: flex;
+  input {
+  }
+  button.sign-in {
+    background-color: #db2828;
+    color: #fff;
+    border: none;
+  }
+}
+.main {
+  display: flex;
+  align-items: stretch;
+}
+.login {
+  h1 {
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    text-align: center;
+  }
+}
+.google {
+  background-color: green;
+  border: none;
+  width: 50px;
+  cursor: pointer;
+}

@@ -26,6 +26,7 @@ import { LoginComponent } from "./login/login.component";
 import { AngularFireModule } from "@angular/fire";
 import { environment } from "src/environments/environment";
 import { AuthService } from "./services/auth.service";
+import { AuthGuardService } from "./services/auth-guard.service";
 
 @NgModule({
   declarations: [
@@ -50,14 +51,14 @@ import { AuthService } from "./services/auth.service";
     FilterPipeModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: "AIzaSyAvcDy5ZYc2ujCS6TTtI3RYX5QmuoV8Ffw"
+      apiKey: "GOOGLE_MAP_API_KEY"
     }),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule
   ],
-  providers: [EventsListService, AuthService],
+  providers: [EventsListService, AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

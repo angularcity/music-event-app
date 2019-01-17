@@ -34,6 +34,19 @@ body {
   padding: 2rem;
 }
 
+.submit {
+  background-color: map-get($map: $colors, $key: red);
+  color: map-get($map: $colors, $key: white);
+  cursor: pointer;
+  border: none;
+  text-transform: uppercase;
+  padding: 1rem;
+  width: 200px;
+  &:disabled {
+    background-color: #ccc;
+  }
+}
+
 // font-family: 'Nanum Pen Script', cursive;
 // font-family: 'Dancing Script', cursive;
 // font-family: 'Caveat Brush', cursive;

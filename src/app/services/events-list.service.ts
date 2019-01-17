@@ -45,7 +45,7 @@ const EVENTS_LIST: Event[] = [
   },
   {
     id: 3,
-    name: "C2C Country to Country",
+    name: "C2  Country to Country",
     date: "January 18",
     location: {
       name: "Washington DC",

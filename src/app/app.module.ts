@@ -1,11 +1,12 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FilterPipeModule } from "ngx-filter-pipe";
-import { AngularFireAuthModule } from "@angular/fire/auth";
+import { HttpClientModule } from "@angular/common/http";
+
 import { AgmCoreModule } from "@agm/core";
 import { ToastrModule } from "ngx-toastr";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { NavbarComponent } from "./navbar/navbar.component";
@@ -23,10 +24,11 @@ import { EventsListItemComponent } from "./events/events-list/events-list-item.c
 import { EventsListService } from "./services/events-list.service";
 import { EventMapComponent } from "./event/event-map/event-map.component";
 import { LoginComponent } from "./login/login.component";
-import { AngularFireModule } from "@angular/fire";
-import { environment } from "src/environments/environment";
+
 import { AuthService } from "./services/auth.service";
 import { AuthGuardService } from "./services/auth-guard.service";
+import { HighlightDirective } from "./directives/highlight.directive";
+import { FirebaseService } from "./services/firebase.service";
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { AuthGuardService } from "./services/auth-guard.service";
     EventsSearchComponent,
     EventsListItemComponent,
     EventMapComponent,
-    LoginComponent
+    LoginComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
@@ -51,14 +54,18 @@ import { AuthGuardService } from "./services/auth-guard.service";
     FilterPipeModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: "GOOGLE_MAP_API_KEY"
+      apiKey: "KEY_FOR_GOOGLE_MAP"
     }),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
+    HttpClientModule
   ],
-  providers: [EventsListService, AuthService, AuthGuardService],
+  providers: [
+    EventsListService,
+    AuthService,
+    AuthGuardService,
+    FirebaseService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

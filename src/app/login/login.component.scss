@@ -17,11 +17,17 @@
   height: 50px;
   display: flex;
   input {
+    padding-left: 1rem;
   }
   button.sign-in {
     background-color: #db2828;
     color: #fff;
     border: none;
+  }
+  ::-webkit-input-placeholder {
+    padding-left: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4rem;
   }
 }
 .main {

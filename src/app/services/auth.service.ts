@@ -1,19 +1,33 @@
 import { Injectable } from "@angular/core";
-import { AngularFireAuth } from "@angular/fire/auth";
-import { auth } from "firebase/app";
+
+
 import { Observable } from "rxjs";
+
+import { switchMap } from "rxjs/operators";
+import { of } from "rxjs/observable/of";
+import { User } from "../models/events";
+
 @Injectable()
 export class AuthService {
-  user$: Observable<any>;
+  user$: Observable<User>;
 
-  constructor(public afAuth: AngularFireAuth) {
-    this.user$ = afAuth.authState;
+  constructor() {
+    // this.user$ = this.afAuth.authState.pipe(
+    //   switchMap(user => {
+    //     if (user) {
+    //       return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+    //     } else {
+    //       return of(null);
+    //     }
+    //   })
+    // );
   }
 
-  login() {
-    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
-  }
-  logout() {
-    this.afAuth.auth.signOut();
-  }
+  
+
+  
+
+  
+
+  
 }

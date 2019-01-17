@@ -1,19 +1,24 @@
 <div class="event">
   <img
     class="event-thumbnail"
-    [src]="currentEvent.imageUrl"
-    alt="{{ currentEvent.name }}"
+    [src]="currentEvent?.imageUrl"
+    alt="{{ currentEvent?.name }}"
   />
-  <div class="map"><app-event-map></app-event-map></div>
+  <div class="map">
+    <app-event-map
+      [latitude]="latitude"
+      [longitude]="longitude"
+    ></app-event-map>
+  </div>
   <div class="details-container">
-    <h2>{{ currentEvent.name }}</h2>
+    <h2>{{ currentEvent?.name }}</h2>
     <p>
-      <i class="fas fa-map-marker-alt"></i> {{ currentEvent.location?.name }}
+      <i class="fas fa-map-marker-alt"></i> {{ currentEvent?.location.name }}
     </p>
-    <p><i class="far fa-calendar-alt"></i> {{ currentEvent.date }}</p>
+    <p><i class="far fa-calendar-alt"></i> {{ currentEvent?.date }}</p>
     <div class="detailed-description">
       <h3>Event Description</h3>
-      <p>{{ currentEvent.description }}</p>
+      <p>{{ currentEvent?.description }}</p>
       <button (click)="onBooking()" class="booking">Book your seat</button>
     </div>
   </div>

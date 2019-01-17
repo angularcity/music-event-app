@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { EventsListService } from "src/app/services/events-list.service";
+import { FirebaseService } from "src/app/services/firebase.service";
 
 @Component({
   selector: "app-events-list",
@@ -9,9 +10,9 @@ import { EventsListService } from "src/app/services/events-list.service";
 export class EventsListComponent implements OnInit {
   events = [];
   searchFilter: any = { name: "" };
-  constructor(private eventsListService: EventsListService) {}
+  constructor(private fbService: FirebaseService) {}
   ngOnInit() {
-    this.eventsListService.getEventList().subscribe(data => {
+    this.fbService.getEventDetails().subscribe(data => {
       this.events = data;
     });
   }

@@ -4,4 +4,7 @@
     *ngFor="let event of (events | filterBy: searchFilter)"
     [event]="event"
   ></app-events-list-item>
+  <h2 *ngIf="(events | filterBy: searchFilter).length === 0">
+    No matching search result..
+  </h2>
 </div>

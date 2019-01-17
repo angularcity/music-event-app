@@ -16,8 +16,8 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   {
     path: "manage",
-    loadChildren: "./dashboard/dashboard.module#DashboardModule",
-    canActivate: [AuthGuardService]
+    loadChildren: "./dashboard/dashboard.module#DashboardModule"
+    //canActivate: [AuthGuardService]
   }
 ];
 

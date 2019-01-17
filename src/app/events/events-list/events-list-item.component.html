@@ -1,4 +1,8 @@
-<div class="events-list-item" [ngClass]="{ soldout: !event.ticketsAvailable }">
+<div
+  appHighlight
+  class="events-list-item"
+  [ngClass]="{ soldout: !event.ticketsAvailable }"
+>
   <img [src]="event.imageUrl" alt="{{ event.name }}" />
   <div class="event-details">
     <h2>{{ event.name }}</h2>

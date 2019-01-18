@@ -54,11 +54,11 @@
 
     <div class="form-group">
       <label for=""> Location Latitude</label>
-      <input [formControlName]="'latitude'" type="text" />
+      <input [formControlName]="'lat'" type="text" />
       <span
         *ngIf="
-          !eventForm.get('location.latitude').valid &&
-          eventForm.get('location.latitude').touched
+          !eventForm.get('location.lat').valid &&
+          eventForm.get('location.lat').touched
         "
         class="help-block"
       >
@@ -68,11 +68,11 @@
 
     <div class="form-group">
       <label for=""> Location Longitude</label>
-      <input [formControlName]="'longitude'" type="text" />
+      <input [formControlName]="'lng'" type="text" />
       <span
         *ngIf="
-          !eventForm.get('location.longitude').valid &&
-          eventForm.get('location.longitude').touched
+          !eventForm.get('location.lng').valid &&
+          eventForm.get('location.lng').touched
         "
         class="help-block"
       >
@@ -111,5 +111,5 @@
   <button [disabled]="!eventForm.valid" class="submit" type="submit">
     Add New Event
   </button>
-  <pre> {{ eventForm.value | json }}</pre>
+  <!-- <pre> {{ eventForm.value | json }}</pre> -->
 </form>

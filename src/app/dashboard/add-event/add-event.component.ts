@@ -18,8 +18,8 @@ export class AddEventComponent implements OnInit {
       imageUrl: new FormControl(null, Validators.required),
       location: new FormGroup({
         name: new FormControl(null, Validators.required),
-        latitude: new FormControl(null, Validators.required),
-        longitude: new FormControl(null, Validators.required)
+        lat: new FormControl(null, Validators.required),
+        lng: new FormControl(null, Validators.required)
       }),
       ticketsAvailable: new FormControl(null, Validators.requiredTrue),
       description: new FormControl(null, Validators.required)

@@ -10,5 +10,7 @@ export class EventsListItemComponent implements OnInit {
   @Input() event: Event;
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.event);
+  }
 }

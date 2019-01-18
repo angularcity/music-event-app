@@ -28,7 +28,7 @@ import { LoginComponent } from "./login/login.component";
 import { AuthService } from "./services/auth.service";
 import { AuthGuardService } from "./services/auth-guard.service";
 import { HighlightDirective } from "./directives/highlight.directive";
-import { FirebaseService } from "./services/firebase.service";
+// import { FirebaseService } from "./services/firebase.service";
 
 @NgModule({
   declarations: [
@@ -60,12 +60,7 @@ import { FirebaseService } from "./services/firebase.service";
     ToastrModule.forRoot(),
     HttpClientModule
   ],
-  providers: [
-    EventsListService,
-    AuthService,
-    AuthGuardService,
-    FirebaseService
-  ],
+  providers: [EventsListService, AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

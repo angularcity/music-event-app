@@ -1,0 +1,75 @@
+@import "../../../partials/variables";
+
+.edit-event {
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+  ul.edit-list {
+    width: 40%;
+    list-style: none;
+    padding: 0;
+    float: left;
+    li {
+      padding: 0.5rem;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      margin-bottom: 1rem;
+      background-color: map-get($map: $colors, $key: black);
+      color: map-get($map: $colors, $key: white);
+      position: relative;
+      img {
+        width: 100px;
+        height: 100px;
+        margin-right: 10px;
+        float: left;
+      }
+      .event-list-name {
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      i {
+        position: absolute;
+        right: 20px;
+        top: 30px;
+      }
+    }
+  }
+}
+
+.edit-form-wrapper {
+  width: 50%;
+  float: right;
+  .event-form {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin-top: 1.5rem;
+
+    .form-group {
+      margin: 10px 0 20px;
+      display: flex;
+      flex-direction: column;
+      align-content: stretch;
+      label {
+        margin-bottom: 7px;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: bold;
+        letter-spacing: 0.2rem;
+      }
+      input {
+        height: 30px;
+        padding: 5px;
+      }
+      textarea {
+        padding: 5px;
+      }
+    }
+  }
+}
+.help-block {
+  background-color: red;
+  color: #fff;
+  padding: 5px;
+  font-size: 14px;
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-add-event",
@@ -9,7 +10,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 export class AddEventComponent implements OnInit {
   eventForm: FormGroup;
   @Output() formComplete = new EventEmitter();
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.eventForm = new FormGroup({
@@ -28,5 +29,7 @@ export class AddEventComponent implements OnInit {
 
   eventFormSubmit() {
     this.formComplete.emit(this.eventForm.value);
+    this.eventForm.reset();
+    this.router.navigate(["/"]);
   }
 }

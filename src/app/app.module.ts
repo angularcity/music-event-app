@@ -28,6 +28,9 @@ import { LoginComponent } from "./login/login.component";
 import { AuthService } from "./services/auth.service";
 import { AuthGuardService } from "./services/auth-guard.service";
 import { HighlightDirective } from "./directives/highlight.directive";
+import { BookingsComponent } from './bookings/bookings.component';
+import { BookingCardComponent } from './bookings/booking-card/booking-card.component';
+import { HamburgerDirective } from './directives/hamburger.directive';
 // import { FirebaseService } from "./services/firebase.service";
 
 @NgModule({
@@ -46,7 +49,10 @@ import { HighlightDirective } from "./directives/highlight.directive";
     EventsListItemComponent,
     EventMapComponent,
     LoginComponent,
-    HighlightDirective
+    HighlightDirective,
+    BookingsComponent,
+    BookingCardComponent,
+    HamburgerDirective
   ],
   imports: [
     BrowserModule,

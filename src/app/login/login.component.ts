@@ -14,10 +14,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   onLogin(form: NgForm) {
-    // console.log(form);
-    this.router.navigate(["/"]);
-  }
-  onGoogle() {
-    //this.authService.login();
+    const { email, password } = form.value;
+    this.authService.signIn(email, password);
+    //this.router.navigate(["/"]);
   }
 }

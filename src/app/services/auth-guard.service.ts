@@ -13,15 +13,19 @@ export class AuthGuardService implements CanActivate {
   ) {}
 
   canActivate() {
-    return this.auth.user$.pipe(
-      take(1),
-      map(user => !!user),
-      tap(loggedIn => {
-        if (!loggedIn) {
-          this.toastr.error("Sorry, no access");
-          this.router.navigate(["/login"]);
-        }
-      })
-    );
+    return true;
   }
+
+  // canActivate() {
+  //   return this.auth.user$.pipe(
+  //     take(1),
+  //     map(user => !!user),
+  //     tap(loggedIn => {
+  //       if (!loggedIn) {
+  //         this.toastr.error("Sorry, no access");
+  //         this.router.navigate(["/login"]);
+  //       }
+  //     })
+  //   );
+  // }
 }

@@ -1,5 +1,11 @@
 @import "../../partials/variables";
 .events {
-  width: 1024px;
+  width: 80vw;
   margin: 20px auto 0;
+}
+
+@media only screen and (max-width: $bp-tablet) {
+  .events {
+    width: 90vw;
+  }
 }

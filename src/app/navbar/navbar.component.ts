@@ -9,11 +9,15 @@ import { AuthService } from "./../services/auth.service";
   styleUrls: ["./navbar.component.scss"]
 })
 export class NavbarComponent implements OnInit {
+  isOpen = false;
   constructor(public auth: AuthService) {}
 
   ngOnInit() {}
 
   logout() {
     // this.auth.logout();
+  }
+  toggle() {
+    // this.isOpen = !this.isOpen;
   }
 }

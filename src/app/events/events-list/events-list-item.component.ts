@@ -11,6 +11,6 @@ export class EventsListItemComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    console.log(this.event);
+    //console.log(this.event);
   }
 }

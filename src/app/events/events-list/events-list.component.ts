@@ -15,6 +15,10 @@ export class EventsListComponent implements OnInit {
     this.fbService.getEventDetails().subscribe(data => {
       this.events = data;
     });
+    const bArr = this.fbService.getAllBookedEvents();
+
+    this.events = this.events.filter(value => -1 === bArr.indexOf(value));
+    //this.events = this.events.includes()
   }
   onSearchChange(val) {
     this.searchFilter.name = val;

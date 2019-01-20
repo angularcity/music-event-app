@@ -1,6 +1,6 @@
 @import "../../partials/variables";
 
-ul {
+.navbar {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -14,6 +14,9 @@ ul {
       text-align: center;
       padding: 2.4rem 1.6rem;
       text-decoration: none;
+      .mob {
+        display: none;
+      }
       &:hover:not(.active) {
         background-color: map-get($map: $colors, $key: red);
       }
@@ -22,8 +25,90 @@ ul {
   li.right {
     float: right;
   }
+  .active {
+    background-color: map-get($map: $colors, $key: red);
+  }
+}
+.mobile-hamburger {
+  display: none;
 }
 
-.active {
-  background-color: map-get($map: $colors, $key: red);
+/********* Responsive breakpoint Landscape ****************/
+@media only screen and (max-width: $bp-tablet) {
+  .mobile-hamburger {
+    display: block;
+
+    background-color: map-get($map: $colors, $key: black);
+    color: map-get($map: $colors, $key: white);
+    padding: 2rem;
+    overflow: hidden;
+    a {
+      float: right;
+      cursor: pointer;
+    }
+  }
+  .mobile-hamburger + .navbar {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+  }
+  .mobile-hamburger.open + .navbar {
+    max-height: 100%;
+  }
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    li {
+      a {
+        text-align: left;
+
+        .mob {
+          display: block;
+          margin-right: 1rem;
+          float: left;
+        }
+      }
+      &:last-child {
+        order: -1;
+        flex: 0 0 100%;
+      }
+    }
+  }
+}
+/********* Responsive breakpoint Mobile ****************/
+
+@media only screen and (max-width: $bp-mobile-portrait) {
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    li {
+      flex: 0 0 50%;
+    }
+    // .mobile-hamburger,
+    // .login {
+    //   flex: 1 1 100%;
+    // }
+  }
+}
+
+/********* Responsive breakpoint Smaller mobile ****************/
+
+@media only screen and (max-width: $bp-mobile-xs) {
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    li {
+      flex: 1 1 auto;
+      text-align: center;
+      a {
+        .mob {
+          float: none;
+        }
+      }
+    }
+    .link-text {
+      display: none;
+    }
+  }
 }

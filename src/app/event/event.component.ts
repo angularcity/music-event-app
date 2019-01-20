@@ -30,9 +30,11 @@ export class EventComponent implements OnInit {
   }
 
   onBooking() {
-    this.toastr.success(
-      "Event Booking Success!. Check your mail for confirmation",
-      "Booking Status"
-    );
+    this.fbService.bookEvent(this.currentEvent).subscribe(response => {
+      this.toastr.success(
+        "Event Booking Success!. Check your mail for confirmation",
+        "Booking Status"
+      );
+    });
   }
 }

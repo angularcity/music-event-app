@@ -11,6 +11,7 @@ $figcaption-bg: darken(
   ),
   5%
 );
+// defaults
 $figcaption-padding: 30px !default;
 $text-color: #ffffff !default;
 $transition-duration: 0.35s !default;
@@ -27,7 +28,7 @@ $transition-duration: 0.35s !default;
   margin: 0;
   max-width: 100%;
   background-color: $image-bg;
-  color: #fff;
+  color: map-get($map: $colors, $key: white);
   overflow: hidden;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;

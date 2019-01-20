@@ -31,3 +31,14 @@
     }
   }
 }
+
+@media only screen and (max-width: $bp-tablet) {
+  .gallery-header {
+    font-size: 1.7rem;
+  }
+  .gallery-wrapper {
+    .gallery-container {
+      width: auto;
+    }
+  }
+}

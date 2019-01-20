@@ -6,7 +6,8 @@
   position: relative;
 
   img.fluid-image {
-    object-fit: contain;
+    object-fit: cover;
+    height: 100%;
   }
 
   &__overlay {
@@ -40,5 +41,11 @@
         font-size: 4rem;
       }
     }
+  }
+}
+
+@media only screen and (max-width: $bp-mobile-portrait) {
+  .jumbotron {
+    height: 250px;
   }
 }

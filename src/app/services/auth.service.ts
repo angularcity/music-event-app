@@ -1,33 +1,39 @@
 import { Injectable } from "@angular/core";
-
-
-import { Observable } from "rxjs";
-
-import { switchMap } from "rxjs/operators";
-import { of } from "rxjs/observable/of";
-import { User } from "../models/events";
+import * as firebase from "firebase";
 
 @Injectable()
 export class AuthService {
-  user$: Observable<User>;
-
-  constructor() {
-    // this.user$ = this.afAuth.authState.pipe(
-    //   switchMap(user => {
-    //     if (user) {
-    //       return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
-    //     } else {
-    //       return of(null);
-    //     }
-    //   })
-    // );
+  token;
+  userMail;
+  signup(email: string, password: string) {
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .catch(error => console.log(error));
   }
-
-  
-
-  
-
-  
-
-  
+  signIn(email: string, password: string) {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(response => {
+        this.userMail = response.user.email;
+        firebase
+          .auth()
+          .currentUser.getIdToken()
+          .then(token => (this.token = token));
+      });
+  }
+  getToken() {
+    firebase
+      .auth()
+      .currentUser.getIdToken()
+      .then(token => (this.token = token));
+    return this.token;
+  }
+  isAuthenticated() {
+    return this.token != null;
+  }
+  getUser() {
+    return this.userMail;
+  }
 }

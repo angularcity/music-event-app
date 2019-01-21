@@ -1,5 +1,7 @@
-<div appHamburger #ham="hamburger" class="mobile-hamburger">
-  <a class="hamburger-link"> <i class="fas fa-bars"></i> </a>
+<div class="mobile-hamburger">
+  <a appHamburger #ham="hamburger" class="hamburger-link">
+    <i class="fas fa-bars"></i>
+  </a>
 </div>
 <ul (click)="ham.toggle()" #list class="navbar">
   <ng-container>

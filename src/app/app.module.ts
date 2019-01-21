@@ -31,6 +31,7 @@ import { HighlightDirective } from "./directives/highlight.directive";
 import { BookingsComponent } from './bookings/bookings.component';
 import { BookingCardComponent } from './bookings/booking-card/booking-card.component';
 import { HamburgerDirective } from './directives/hamburger.directive';
+import { ToggleDirective } from './directives/toggle.directive';
 // import { FirebaseService } from "./services/firebase.service";
 
 @NgModule({
@@ -52,7 +53,8 @@ import { HamburgerDirective } from './directives/hamburger.directive';
     HighlightDirective,
     BookingsComponent,
     BookingCardComponent,
-    HamburgerDirective
+    HamburgerDirective,
+    ToggleDirective
   ],
   imports: [
     BrowserModule,

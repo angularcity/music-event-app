@@ -5,11 +5,15 @@ import { AddEventComponent } from "./add-event/add-event.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { EditEventComponent } from "./edit-event/edit-event.component";
 import { EventDashboardComponent } from "./event-dashboard/event-dashboard.component";
+import { EditFormComponent } from './edit-form/edit-form.component';
+import { EditEventItemComponent } from './edit-event/edit-event-item/edit-event-item.component';
 @NgModule({
   declarations: [
     EventDashboardComponent,
     AddEventComponent,
-    EditEventComponent
+    EditEventComponent,
+    EditFormComponent,
+    EditEventItemComponent
   ],
   imports: [
     CommonModule,

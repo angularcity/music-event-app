@@ -1,12 +1,12 @@
 @import "../../../partials/variables";
 
 .events-list-item {
-  width: 300px;
+  width: 100%;
+  box-sizing: border-box;
   height: 180px;
   border: 1px solid #fff;
   background-color: map-get($map: $colors, $key: black);
   display: flex;
-  margin: 10px;
   -webkit-box-shadow: 6px 7px 5px 0px rgba(51, 51, 51, 1);
   -moz-box-shadow: 6px 7px 5px 0px rgba(51, 51, 51, 1);
   box-shadow: 6px 7px 5px 0px rgba(51, 51, 51, 1);
@@ -70,5 +70,13 @@
   img {
     transform: scale(1.1);
     cursor: pointer;
+  }
+}
+
+@media only screen and (max-width: $bp-mobile-portrait) {
+  .events-list-item {
+    img {
+      width: 50px;
+    }
   }
 }

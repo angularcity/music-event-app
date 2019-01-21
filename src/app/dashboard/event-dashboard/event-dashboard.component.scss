@@ -1,17 +1,28 @@
+@import "../../../partials/variables";
+
 .event-dashboard {
-  width: 1024px;
+  width: 80vw;
   margin: 20px auto;
   background-color: #fff;
   padding: 10px;
+
   .btn-container {
     text-align: center;
-    margin: 10px 0;
+    margin: 20px 0;
   }
 
-  .add-section {
-  }
   .update-section {
     overflow: hidden;
     background-color: #fff;
+    margin: 0 auto;
+    width: 40vw;
+  }
+}
+
+@media only screen and (max-width: $bp-tablet-lg) {
+  .event-dashboard {
+    .update-section {
+      width: 90%;
+    }
   }
 }

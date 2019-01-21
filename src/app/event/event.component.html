@@ -1,15 +1,18 @@
 <div class="event">
-  <img
-    class="event-thumbnail"
-    [src]="currentEvent?.imageUrl"
-    alt="{{ currentEvent?.name }}"
-  />
-  <div class="map">
-    <app-event-map
-      [latitude]="latitude"
-      [longitude]="longitude"
-    ></app-event-map>
+  <div class="event-map-wrapper">
+    <img
+      class="event-thumbnail"
+      [src]="currentEvent?.imageUrl"
+      alt="{{ currentEvent?.name }}"
+    />
+    <div class="map">
+      <app-event-map
+        [latitude]="latitude"
+        [longitude]="longitude"
+      ></app-event-map>
+    </div>
   </div>
+
   <div class="details-container">
     <h2>{{ currentEvent?.name }}</h2>
     <p>

@@ -1,0 +1,15 @@
+<li class="edit-event-item">
+  <div class="edit-event-desc">
+    <img
+      class="event-list-thumbnail"
+      [src]="event.imageUrl"
+      alt="{{ event.name }}"
+    />
+    <p class="event-list-name">{{ event.name }}</p>
+    <p class="event-list-date">{{ event.date }}</p>
+    <i (click)="toggle(event)" class="fas fa-edit fa-2x"></i>
+  </div>
+  <div *ngIf="isEdit" class="edit-form-toggler">
+    <app-edit-form [event]="event"></app-edit-form>
+  </div>
+</li>

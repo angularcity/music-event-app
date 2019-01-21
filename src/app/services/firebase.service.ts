@@ -19,9 +19,7 @@ export class FirebaseService {
     let eventsArr = [];
     if (!this.loaded) {
       return this.http
-        .get<any[]>(
-          `https://event-booking-baf8d.firebaseio.com/events.json?auth=${token}`
-        )
+        .get<any[]>(`https://event-booking-baf8d.firebaseio.com/events.json`)
         .pipe(
           map(event => {
             for (let key in event) {
@@ -43,7 +41,7 @@ export class FirebaseService {
   updateEventDetails(form, eventId) {
     const token = this.authService.getToken();
     return this.http.put(
-      `https://event-booking-baf8d.firebaseio.com/events/${eventId}.json?auth=${token}`,
+      `https://event-booking-baf8d.firebaseio.com/events/${eventId}.json`,
       form
     );
   }
@@ -51,7 +49,7 @@ export class FirebaseService {
   saveEventDetails(form) {
     const token = this.authService.getToken();
     return this.http.post(
-      `https://event-booking-baf8d.firebaseio.com/events.json?auth=${token}`,
+      `https://event-booking-baf8d.firebaseio.com/events.json`,
       form
     );
   }
@@ -59,7 +57,7 @@ export class FirebaseService {
   bookEvent(event) {
     const token = this.authService.getToken();
     return this.http.post(
-      `https://event-booking-baf8d.firebaseio.com/bookings.json?auth=${token}`,
+      `https://event-booking-baf8d.firebaseio.com/bookings.json`,
       {
         eventId: event.id,
         userMail: this.authService.userMail
@@ -69,7 +67,7 @@ export class FirebaseService {
   getBookingEvent() {
     const token = this.authService.getToken();
     return this.http.get<any>(
-      `https://event-booking-baf8d.firebaseio.com/bookings.json?auth=${token}`
+      `https://event-booking-baf8d.firebaseio.com/bookings.json`
     );
   }
   setAllBookedEvents(events) {

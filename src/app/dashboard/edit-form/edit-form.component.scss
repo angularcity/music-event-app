@@ -1,13 +1,7 @@
-@import "../../../partials/variables";
-
 .event-form {
-  display: flex;
-  flex-direction: column;
-  width: 40vw;
   border: 1px solid #ccc;
   padding: 1rem;
-  margin-top: 3rem;
-  margin: 0 auto;
+  margin-top: 1.5rem;
 
   .form-group {
     margin: 10px 0 20px;
@@ -30,27 +24,9 @@
     }
   }
 }
-
 .help-block {
   background-color: red;
   color: #fff;
   padding: 5px;
   font-size: 14px;
-}
-
-@media only screen and (max-width: $bp-large-tab) {
-  .event-form {
-    width: 70%;
-    margin: 0 auto;
-    .form-group {
-      margin: 10px 20px 20px;
-    }
-  }
-}
-
-@media only screen and (max-width: $bp-tablet) {
-  .event-form {
-    width: 100%;
-    padding: 0;
-  }
 }

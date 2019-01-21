@@ -1,8 +1,9 @@
 @import "../../../partials/variables";
 .events-search {
   padding: 3rem 1rem;
+  text-align: center;
   .search-input {
-    width: 50%;
+    width: 70%;
     outline: none;
     padding: 1rem;
     &:focus {

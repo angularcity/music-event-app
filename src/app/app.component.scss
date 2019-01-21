@@ -8,3 +8,8 @@
   flex-grow: 1;
   background-color: map-get($map: $colors, $key: brown);
 }
+@media only screen and (max-width: $bp-tablet) {
+  .main {
+    margin-top: 50px;
+  }
+}

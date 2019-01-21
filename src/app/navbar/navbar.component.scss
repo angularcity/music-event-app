@@ -39,26 +39,31 @@
   width: 100%;
   height: 100%;
   z-index: 200;
+  display: none;
 }
 
 @media only screen and (max-width: $bp-tablet) {
   .mobile-hamburger {
-    display: block;
+    display: flex;
+    flex-direction: row-reverse;
     color: map-get($map: $colors, $key: white);
-    width: 50px;
+    width: 100vw;
     height: 50px;
     position: fixed;
     background: map-get($map: $colors, $key: black);
     top: 0;
     right: 0;
     text-align: center;
+    z-index: 200;
     a {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100%;
       z-index: 320;
+      width: 60px;
     }
+    cursor: pointer;
   }
   .navbar {
     display: flex;
@@ -68,7 +73,8 @@
     top: 0;
     bottom: 0;
     z-index: 300;
-    transition: 0.5s;
+    //transition: 0.5s;
+    transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
     li {
       a {
         display: flex;
@@ -78,6 +84,9 @@
         }
       }
     }
+  }
+  .overlay {
+    display: none;
   }
   .mobile-hamburger + .navbar {
     width: 0;

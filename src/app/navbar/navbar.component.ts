@@ -1,4 +1,11 @@
-import { Component, OnInit } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  AfterViewInit,
+  Renderer2
+} from "@angular/core";
 
 import { Observable } from "rxjs";
 import { AuthService } from "./../services/auth.service";
@@ -8,11 +15,14 @@ import { AuthService } from "./../services/auth.service";
   templateUrl: "./navbar.component.html",
   styleUrls: ["./navbar.component.scss"]
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, AfterViewInit {
+  //@ViewChild("hamburger") hamburger: ElementRef;
   isOpen = false;
-  constructor(public auth: AuthService) {}
+  constructor(public auth: AuthService, private renderer: Renderer2) {}
 
   ngOnInit() {}
+
+  ngAfterViewInit(): void {}
 
   logout() {
     // this.auth.logout();
@@ -20,4 +30,10 @@ export class NavbarComponent implements OnInit {
   toggle() {
     // this.isOpen = !this.isOpen;
   }
+  // toggleOverlay() {
+  //   const isOpen = this.hamburger.nativeElement.classList.contains("open");
+  //   if (isOpen) {
+  //     this.renderer.removeClass(this.hamburger.nativeElement, "open");
+  //   }
+  // }
 }

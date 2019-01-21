@@ -1,7 +1,7 @@
-<div appHamburger class="mobile-hamburger">
+<div appHamburger #ham="hamburger" class="mobile-hamburger">
   <a class="hamburger-link"> <i class="fas fa-bars"></i> </a>
 </div>
-<ul #list class="navbar">
+<ul (click)="ham.toggle()" #list class="navbar">
   <ng-container>
     <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
       <a routerLink="/">
@@ -41,4 +41,4 @@
     </li>
   </ng-container>
 </ul>
-<div class="overlay"></div>
+<div (click)="ham.toggle()" class="overlay"></div>

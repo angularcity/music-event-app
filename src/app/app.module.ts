@@ -32,6 +32,7 @@ import { BookingsComponent } from './bookings/bookings.component';
 import { BookingCardComponent } from './bookings/booking-card/booking-card.component';
 import { HamburgerDirective } from './directives/hamburger.directive';
 import { ToggleDirective } from './directives/toggle.directive';
+import { ToggleOverlayDirective } from './directives/toggle-overlay.directive';
 // import { FirebaseService } from "./services/firebase.service";
 
 @NgModule({
@@ -54,7 +55,8 @@ import { ToggleDirective } from './directives/toggle.directive';
     BookingsComponent,
     BookingCardComponent,
     HamburgerDirective,
-    ToggleDirective
+    ToggleDirective,
+    ToggleOverlayDirective
   ],
   imports: [
     BrowserModule,

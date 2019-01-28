@@ -1,79 +1,76 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpResponse } from "@angular/common/http";
-import { map } from "rxjs/operators";
-import { of } from "rxjs";
+import {
+  map,
+  tap,
+  filter,
+  shareReplay,
+  share,
+  switchMap,
+  withLatestFrom
+} from "rxjs/operators";
+import { of, forkJoin, Observable, ReplaySubject } from "rxjs";
 import { AuthService } from "./auth.service";
-const ENDPOINT_URL = "https://event-booking-baf8d.firebaseio.com/events.json";
+const EVENT_ENDPOINT = "https://event-booking-baf8d.firebaseio.com/events.json";
+const BOOKING_ENDPOINT =
+  "https://event-booking-baf8d.firebaseio.com/bookings.json";
+import * as _ from "lodash";
 
 @Injectable({ providedIn: "root" })
 export class FirebaseService {
-  events: any[] = [];
-  allBooked = [];
+  private eventsCache$: Observable<Array<Event>>;
+  private bookingCache$: Observable<any[]>;
+  eventsArr: any[] = [];
+  bookingsArr: any[] = [];
   loaded = false;
-  constructor(private http: HttpClient, private authService: AuthService) {
-    this.getEventDetails();
-  }
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   getEventDetails() {
-    const token = this.authService.getToken();
-    let eventsArr = [];
-    if (!this.loaded) {
-      return this.http
-        .get<any[]>(`https://event-booking-baf8d.firebaseio.com/events.json`)
-        .pipe(
-          map(event => {
-            for (let key in event) {
-              eventsArr.push({ id: key, ...event[key] });
-            }
-            this.events = eventsArr;
-            this.loaded = true;
-            return eventsArr;
-          })
-        );
-    } else {
-      return of(this.events);
+    if (!this.eventsCache$) {
+      this.eventsCache$ = this.requestEventDetails().pipe(shareReplay(1));
     }
+
+    return this.eventsCache$;
+  }
+
+  private requestEventDetails() {
+    return this.http
+      .get<Event[]>(EVENT_ENDPOINT)
+      .pipe(map(data => _.values(data)));
   }
 
   getIndividualEventDetails(id) {
-    return this.events.filter(event => event.id === id);
-  }
-  updateEventDetails(form, eventId) {
-    const token = this.authService.getToken();
-    return this.http.put(
-      `https://event-booking-baf8d.firebaseio.com/events/${eventId}.json`,
-      form
-    );
+    this.eventsCache$.subscribe((events: Event[]) => {
+      this.eventsArr = events;
+    });
+    return this.eventsArr.find(e => e.id == id);
   }
 
-  saveEventDetails(form) {
-    const token = this.authService.getToken();
-    return this.http.post(
-      `https://event-booking-baf8d.firebaseio.com/events.json`,
-      form
-    );
+  getBookingDetails() {
+    if (!this.bookingCache$) {
+      this.bookingCache$ = this.requestBookingDetails().pipe(
+        withLatestFrom(this.eventsCache$),
+        map(([first, second]) => {
+          console.log(first);
+          console.log(second);
+        })
+      );
+    }
+    //return this.bookingCache$;
   }
 
-  bookEvent(event) {
-    const token = this.authService.getToken();
-    return this.http.post(
-      `https://event-booking-baf8d.firebaseio.com/bookings.json`,
-      {
-        eventId: event.id,
-        userMail: this.authService.userMail
-      }
-    );
+  private requestBookingDetails() {
+    return this.http
+      .get<Event[]>(BOOKING_ENDPOINT)
+      .pipe(map(data => _.values(data)));
   }
-  getBookingEvent() {
-    const token = this.authService.getToken();
-    return this.http.get<any>(
-      `https://event-booking-baf8d.firebaseio.com/bookings.json`
-    );
-  }
-  setAllBookedEvents(events) {
-    this.allBooked = events;
-  }
-  getAllBookedEvents() {
-    return this.allBooked;
-  }
+
+  updateEventDetails(form, eventId) {}
+
+  saveEventDetails(form) {}
+
+  bookEvent(event) {}
+  getBookingEvent() {}
+  setAllBookedEvents(events) {}
+  getAllBookedEvents() {}
 }

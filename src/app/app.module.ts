@@ -1,76 +1,30 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { FilterPipeModule } from "ngx-filter-pipe";
 import { HttpClientModule } from "@angular/common/http";
-
-import { AgmCoreModule } from "@agm/core";
-import { ToastrModule } from "ngx-toastr";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { NavbarComponent } from "./navbar/navbar.component";
-import { JumbotronComponent } from "./jumbotron/jumbotron.component";
-import { EventGalleryComponent } from "./event-gallery/event-gallery.component";
-import { GalleryItemComponent } from "./event-gallery/gallery-item.component";
-import { HomeComponent } from "./home/home.component";
-
-import { EventComponent } from "./event/event.component";
-import { EventsComponent } from "./events/events.component";
-import { FooterComponent } from "./footer/footer.component";
-import { EventsListComponent } from "./events/events-list/events-list.component";
-import { EventsSearchComponent } from "./events/events-search/events-search.component";
-import { EventsListItemComponent } from "./events/events-list/events-list-item.component";
-import { EventsListService } from "./services/events-list.service";
-import { EventMapComponent } from "./event/event-map/event-map.component";
-import { LoginComponent } from "./login/login.component";
-
-import { AuthService } from "./services/auth.service";
-import { AuthGuardService } from "./services/auth-guard.service";
-import { HighlightDirective } from "./directives/highlight.directive";
-import { BookingsComponent } from './bookings/bookings.component';
-import { BookingCardComponent } from './bookings/booking-card/booking-card.component';
-import { HamburgerDirective } from './directives/hamburger.directive';
-import { ToggleDirective } from './directives/toggle.directive';
-import { ToggleOverlayDirective } from './directives/toggle-overlay.directive';
-// import { FirebaseService } from "./services/firebase.service";
+import { CoreModule } from "./core/core.module";
+import { BookingModule } from "./bookings/bookings.module";
+import { SharedModule } from "./shared/shared.module";
+import { EventsModule } from "./events/events.module";
+import { EventResolverService } from "./services/event.resolver";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    JumbotronComponent,
-    EventGalleryComponent,
-    GalleryItemComponent,
-    HomeComponent,
-    EventComponent,
-    EventsComponent,
-    FooterComponent,
-    EventsListComponent,
-    EventsSearchComponent,
-    EventsListItemComponent,
-    EventMapComponent,
-    LoginComponent,
-    HighlightDirective,
-    BookingsComponent,
-    BookingCardComponent,
-    HamburgerDirective,
-    ToggleDirective,
-    ToggleOverlayDirective
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FilterPipeModule,
     FormsModule,
-    AgmCoreModule.forRoot({
-      apiKey: "KEY_FOR_GOOGLE_MAP"
-    }),
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    CoreModule,
+    BookingModule,
+    SharedModule,
+    EventsModule
   ],
-  providers: [EventsListService, AuthService, AuthGuardService],
+  providers: [EventResolverService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,4 +1,4 @@
-<div class="event">
+<div class="event" *ngIf="currentEvent">
   <div class="event-map-wrapper">
     <img
       class="event-thumbnail"
@@ -7,8 +7,8 @@
     />
     <div class="map">
       <app-event-map
-        [latitude]="latitude"
-        [longitude]="longitude"
+        [latitude]="currentEvent.location.lat"
+        [longitude]="currentEvent.location.lng"
       ></app-event-map>
     </div>
   </div>

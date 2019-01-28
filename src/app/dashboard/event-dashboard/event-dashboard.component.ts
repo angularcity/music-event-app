@@ -17,6 +17,6 @@ export class EventDashboardComponent implements OnInit {
   }
 
   formCompleteHandle(form) {
-    this.fbService.saveEventDetails(form).subscribe(data => console.log(data));
+    // this.fbService.saveEventDetails(form).subscribe(data => console.log(data));
   }
 }

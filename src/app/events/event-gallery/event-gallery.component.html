@@ -2,7 +2,7 @@
 
 <div class="gallery-wrapper">
   <div class="gallery-container">
-    <div class="grid-container">
+    <div class="grid-container" *ngIf="(events$ | async) as events">
       <app-gallery-item
         *ngFor="let event of events"
         [event]="event"

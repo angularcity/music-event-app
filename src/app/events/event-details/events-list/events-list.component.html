@@ -1,5 +1,5 @@
 <app-events-search (searchChange)="onSearchChange($event)"></app-events-search>
-<div class="events-list">
+<div class="events-list" *ngIf="(events$ | async) as events">
   <app-events-list-item
     *ngFor="let event of (events | filterBy: searchFilter)"
     [event]="event"

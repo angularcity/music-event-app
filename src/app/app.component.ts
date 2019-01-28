@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import * as firebase from "firebase";
+// import * as firebase from "firebase";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -8,9 +8,9 @@ import * as firebase from "firebase";
 export class AppComponent implements OnInit {
   title = "music-events-app";
   ngOnInit(): void {
-    firebase.initializeApp({
-      apiKey: "AIzaSyCsXcKc15exyOf5rypRA25UsiuSgJblvsM",
-      authDomain: "event-booking-baf8d.firebaseapp.com"
-    });
+    // firebase.initializeApp({
+    //   apiKey: "AIzaSyCsXcKc15exyOf5rypRA25UsiuSgJblvsM",
+    //   authDomain: "event-booking-baf8d.firebaseapp.com"
+    // });
   }
 }

@@ -1,4 +1,11 @@
-import { Component, OnInit, ViewChild, Input } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  Input,
+  Output,
+  EventEmitter
+} from "@angular/core";
 import { NgForm } from "@angular/forms";
 
 @Component({
@@ -9,11 +16,10 @@ import { NgForm } from "@angular/forms";
 export class EditFormComponent implements OnInit {
   @ViewChild("f") form: NgForm;
   @Input() event;
+  @Output() formSubmit = new EventEmitter();
   constructor() {}
 
   ngOnInit() {
-    console.log("kitti", this.event);
-
     setTimeout(() => {
       this.form.setValue({
         name: this.event.name,
@@ -28,5 +34,10 @@ export class EditFormComponent implements OnInit {
         description: this.event.description
       });
     }, 100);
+  }
+
+  updateFormSubmit(form) {
+    this.formSubmit.emit({ form: form, id: this.event.id });
+    this.form.reset();
   }
 }

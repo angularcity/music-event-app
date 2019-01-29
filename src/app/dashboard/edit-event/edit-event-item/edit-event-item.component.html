@@ -8,9 +8,12 @@
     <p class="event-list-name">{{ event.name }}</p>
     <p class="event-list-date">{{ event.date }}</p>
     <i (click)="toggle(event)" class="fas fa-edit"></i>
-    <i class="far fa-times-circle"></i>
+    <i (click)="remove(event)" class="far fa-times-circle"></i>
   </div>
   <div *ngIf="isEdit" class="edit-form-toggler">
-    <app-edit-form [event]="event"></app-edit-form>
+    <app-edit-form
+      (formSubmit)="onFormSubmit($event)"
+      [event]="event"
+    ></app-edit-form>
   </div>
 </li>

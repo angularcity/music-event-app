@@ -13,9 +13,5 @@ export class EventGalleryComponent implements OnInit {
   constructor(private fbService: FirebaseService) {}
   ngOnInit() {
     this.events$ = this.fbService.getEventDetails();
-    // this.fbService.getEventDetails().subscribe(response => {
-    //   this.events = response[0];
-    // });
-    //this.events = this.fbService.getEventDetails();
   }
 }

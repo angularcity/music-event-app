@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FirebaseService } from "src/app/services/firebase.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-event-dashboard",
@@ -8,7 +9,7 @@ import { FirebaseService } from "src/app/services/firebase.service";
 })
 export class EventDashboardComponent implements OnInit {
   viewMode = "ADD";
-  constructor(private fbService: FirebaseService) {}
+  constructor(private fbService: FirebaseService, private router: Router) {}
 
   ngOnInit() {}
 
@@ -16,7 +17,10 @@ export class EventDashboardComponent implements OnInit {
     this.viewMode = mode;
   }
 
-  formCompleteHandle(form) {
-    // this.fbService.saveEventDetails(form).subscribe(data => console.log(data));
+  formCompleteHandle(formVal) {
+    this.fbService.addNewEvent(formVal).subscribe(data => {
+      console.log("New form is added");
+      this.router.navigate(["/"]);
+    });
   }
 }

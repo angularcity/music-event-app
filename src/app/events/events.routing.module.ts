@@ -1,5 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+
+// Custom
 import { EventsListComponent } from "./event-details/events-list/events-list.component";
 import { EventsSearchComponent } from "./event-details/events-search/events-search.component";
 import { EventsListItemComponent } from "./event-details/events-list/events-list-item.component";
@@ -9,12 +11,12 @@ import { EventsComponent } from "./event-details/events.component";
 import { EventResolverService } from "../services/event.resolver";
 
 const routes: Routes = [
+  { path: "", component: EventsComponent, pathMatch: "full" },
   {
-    path: "events/:id",
+    path: ":id",
     component: EventComponent,
     resolve: { events: EventResolverService }
-  },
-  { path: "events", component: EventsComponent }
+  }
 ];
 
 @NgModule({

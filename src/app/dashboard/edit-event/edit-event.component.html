@@ -2,6 +2,7 @@
   <ul class="edit-list">
     <app-edit-event-item
       [event]="event"
+      (formSubmit)="updateFormSubmit($event)"
       *ngFor="let event of events"
     ></app-edit-event-item>
   </ul>

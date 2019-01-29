@@ -9,7 +9,5 @@ export class EventsListItemComponent implements OnInit {
   @Input() event: Event;
   constructor() {}
 
-  ngOnInit() {
-    //console.log(this.event);
-  }
+  ngOnInit() {}
 }

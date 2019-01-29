@@ -23,12 +23,11 @@ export class EditEventComponent implements OnInit {
   editEvent(event) {
     this.eventId = event.id;
   }
-  updateFormSubmit(event) {
-    // this.fbService
-    //   .updateEventDetails(event.form.value, this.eventId)
-    //   .subscribe(response => {
-    //     //this.form.reset();
-    //     this.router.navigate(["/"]);
-    //   });
+  updateFormSubmit(saveData) {
+    this.fbService
+      .updateEventDetails(saveData.form.value, saveData.id)
+      .subscribe(response => {
+        this.router.navigate(["/"]);
+      });
   }
 }

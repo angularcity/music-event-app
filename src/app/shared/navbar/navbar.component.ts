@@ -16,7 +16,6 @@ import { AuthService } from "src/app/services/auth.service";
   styleUrls: ["./navbar.component.scss"]
 })
 export class NavbarComponent implements OnInit, AfterViewInit {
-  //@ViewChild("hamburger") hamburger: ElementRef;
   isOpen = false;
   constructor(public auth: AuthService, private renderer: Renderer2) {}
 
@@ -24,16 +23,6 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {}
 
-  logout() {
-    // this.auth.logout();
-  }
-  toggle() {
-    // this.isOpen = !this.isOpen;
-  }
-  // toggleOverlay() {
-  //   const isOpen = this.hamburger.nativeElement.classList.contains("open");
-  //   if (isOpen) {
-  //     this.renderer.removeClass(this.hamburger.nativeElement, "open");
-  //   }
-  // }
+  logout() {}
+  toggle() {}
 }

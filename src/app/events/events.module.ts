@@ -1,11 +1,13 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+
+// Custom
 import { EventRoutingModule } from "./events.routing.module";
-import { EventsListService } from "../services/events-list.service";
 import { SharedModule } from "../shared/shared.module";
 import { FilterPipeModule } from "ngx-filter-pipe";
 import { AgmCoreModule } from "@agm/core";
+
 @NgModule({
   declarations: [EventRoutingModule.components],
   imports: [
@@ -20,6 +22,6 @@ import { AgmCoreModule } from "@agm/core";
     })
   ],
   exports: [EventRoutingModule.components],
-  providers: [EventsListService]
+  providers: []
 })
 export class EventsModule {}

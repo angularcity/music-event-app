@@ -22,7 +22,17 @@
     <div class="detailed-description">
       <h3>Event Description</h3>
       <p>{{ currentEvent?.description }}</p>
-      <button (click)="onBooking()" class="booking">Book your seat</button>
+      <button
+        [disabled]="isBtnDisabled$ | async"
+        (click)="onBooking()"
+        class="booking"
+      >
+        {{
+          (isBtnDisabled$ | async)
+            ? "You already booked this event"
+            : "Book your seat"
+        }}
+      </button>
     </div>
   </div>
 </div>

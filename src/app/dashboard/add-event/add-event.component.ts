@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
 export class AddEventComponent implements OnInit {
   eventForm: FormGroup;
   @Output() formComplete = new EventEmitter();
-  constructor(private router: Router) {}
+  constructor() {}
 
   ngOnInit() {
     this.eventForm = new FormGroup({
@@ -30,6 +30,6 @@ export class AddEventComponent implements OnInit {
   eventFormSubmit() {
     this.formComplete.emit(this.eventForm.value);
     this.eventForm.reset();
-    this.router.navigate(["/"]);
+    //this.router.navigate(["/"]);
   }
 }

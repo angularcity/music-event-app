@@ -1,13 +1,5 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  ElementRef,
-  AfterViewInit,
-  Renderer2
-} from "@angular/core";
+import { Component, OnInit, AfterViewInit, Renderer2 } from "@angular/core";
 
-import { Observable } from "rxjs";
 import { AuthService } from "src/app/services/auth.service";
 
 @Component({
@@ -16,13 +8,19 @@ import { AuthService } from "src/app/services/auth.service";
   styleUrls: ["./navbar.component.scss"]
 })
 export class NavbarComponent implements OnInit, AfterViewInit {
-  isOpen = false;
+  isLoggedIn = false;
   constructor(public auth: AuthService, private renderer: Renderer2) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.auth.user.subscribe(loggedIn => {
+      this.isLoggedIn = !!loggedIn;
+    });
+  }
 
   ngAfterViewInit(): void {}
 
-  logout() {}
+  logout() {
+    this.auth.logout();
+  }
   toggle() {}
 }

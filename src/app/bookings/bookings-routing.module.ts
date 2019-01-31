@@ -8,8 +8,7 @@ import { EventResolverService } from "../services/event.resolver";
 const routes: Routes = [
   {
     path: "",
-    component: BookingsComponent,
-    resolve: { events: EventResolverService }
+    component: BookingsComponent
   }
 ];
 

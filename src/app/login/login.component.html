@@ -3,7 +3,7 @@
     <form (ngSubmit)="onLogin(f)" #f="ngForm" class="login-page__form">
       <input type="text" placeholder="Username" name="email" ngModel />
       <input type="password" placeholder="Password" name="password" ngModel />
-      <button>login</button>
+      <button>login <span *ngIf="isLoading" class="loader"></span></button>
     </form>
   </div>
 </div>

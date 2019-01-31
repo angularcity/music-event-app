@@ -28,17 +28,13 @@
         ><span class="link-text">Event Dashboard</span></a
       >
     </li>
-    <li *ngIf="auth.isAuthenticated()" class="right">
+    <!-- <li *ngIf="auth.isAuthenticated()" class="right">
       <a (click)="logout()">Logout</a>
     </li>
     <li *ngIf="auth.isAuthenticated()" class="right">
       <a>Welcome , {{ auth.getUser() }}</a>
-    </li>
-    <li
-      *ngIf="!auth.isAuthenticated()"
-      routerLinkActive="active"
-      class="right login"
-    >
+    </li> -->
+    <li routerLinkActive="active" class="right login">
       <a [routerLink]="['/login']">Login</a>
     </li>
   </ng-container>

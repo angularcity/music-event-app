@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { NotifyService } from "./shared/notify/notify.service";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-root",
@@ -7,5 +9,9 @@ import { Component, OnInit } from "@angular/core";
 })
 export class AppComponent implements OnInit {
   title = "Music Events App";
-  ngOnInit(): void {}
+  isVisible$: Observable<any>;
+  constructor(private notifyService: NotifyService) {}
+  ngOnInit(): void {
+    this.isVisible$ = this.notifyService.isVisible;
+  }
 }

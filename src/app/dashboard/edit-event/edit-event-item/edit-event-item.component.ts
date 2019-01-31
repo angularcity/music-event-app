@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { FirebaseService } from "src/app/services/firebase.service";
 import { Router } from "@angular/router";
+import { NotifyService } from "src/app/shared/notify/notify.service";
 
 @Component({
   selector: "app-edit-event-item",
@@ -11,7 +12,11 @@ export class EditEventItemComponent implements OnInit {
   @Input() event;
   @Output() formSubmit = new EventEmitter<any>();
   isEdit = false;
-  constructor(private fbService: FirebaseService, private router: Router) {}
+  constructor(
+    private fbService: FirebaseService,
+    private router: Router,
+    private notifyService: NotifyService
+  ) {}
 
   ngOnInit() {}
   toggle() {
@@ -19,6 +24,11 @@ export class EditEventItemComponent implements OnInit {
   }
   remove(event) {
     this.fbService.deleteEvent(event.id).subscribe(success => {
+      this.notifyService.isVisible.next({
+        type: "alert",
+        message: "Event is deleted",
+        visibility: true
+      });
       this.router.navigate(["/"]);
     });
   }

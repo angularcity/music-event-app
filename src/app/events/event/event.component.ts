@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewContainerRef } from "@angular/core";
 
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { FirebaseService } from "src/app/services/firebase.service";
 import { Observable } from "rxjs";
+import { NotifyService } from "src/app/shared/notify/notify.service";
 
 @Component({
   selector: "app-event",
@@ -20,7 +21,8 @@ export class EventComponent implements OnInit {
   constructor(
     private fbService: FirebaseService,
     private route: ActivatedRoute,
-    private toastr: ToastrService
+    private router: Router,
+    private notifyService: NotifyService
   ) {}
 
   ngOnInit() {
@@ -35,10 +37,12 @@ export class EventComponent implements OnInit {
 
   onBooking() {
     this.fbService.bookEvent(this.currentEvent).subscribe(success => {
-      this.toastr.success(
-        "Event Booking Success!. Check your mail for confirmation",
-        "Booking Status"
-      );
+      this.notifyService.isVisible.next({
+        type: "success",
+        message: "Event booking done! Check your mail for more details",
+        visibility: true
+      });
+      this.router.navigate(["/"]);
     });
   }
 }

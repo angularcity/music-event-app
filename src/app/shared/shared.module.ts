@@ -18,6 +18,7 @@ import { HighlightDirective } from "../directives/highlight.directive";
 import { HamburgerDirective } from "../directives/hamburger.directive";
 import { ToggleDirective } from "../directives/toggle.directive";
 import { ToggleOverlayDirective } from "../directives/toggle-overlay.directive";
+import { NotifyComponent } from "./notify/notify.component";
 
 @NgModule({
   declarations: [
@@ -30,15 +31,22 @@ import { ToggleOverlayDirective } from "../directives/toggle-overlay.directive";
     HighlightDirective,
     HamburgerDirective,
     ToggleDirective,
-    ToggleOverlayDirective
+    ToggleOverlayDirective,
+    NotifyComponent
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule],
   exports: [
     NavbarComponent,
     JumbotronComponent,
+    EventGalleryComponent,
     GalleryItemComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    HighlightDirective,
+    HamburgerDirective,
+    ToggleDirective,
+    ToggleOverlayDirective,
+    NotifyComponent
   ]
 })
 export class SharedModule {}

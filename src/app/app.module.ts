@@ -8,6 +8,7 @@ import { SharedModule } from "./shared/shared.module";
 // Custom
 import { AppComponent } from "./app.component";
 import { EventResolverService } from "./services/event.resolver";
+import { NotifyService } from "./shared/notify/notify.service";
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +20,7 @@ import { EventResolverService } from "./services/event.resolver";
     CoreModule,
     SharedModule
   ],
-  providers: [EventResolverService],
+  providers: [EventResolverService, NotifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

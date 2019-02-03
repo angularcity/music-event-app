@@ -1,6 +1,6 @@
 <div class="layout">
   <app-navbar></app-navbar>
-
+  <!-- <app-loading-overlay></app-loading-overlay> -->
   <app-notify
     *ngIf="(isVisible$ | async).visibility"
     [options]="isVisible$ | async"

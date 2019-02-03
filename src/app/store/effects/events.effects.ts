@@ -8,16 +8,14 @@ import { FirebaseService } from "src/app/services/firebase.service";
 
 @Injectable()
 export class EventsEffects {
-  @Effect({ dispatch: false })
+  @Effect()
   loadAllEventsOnLoad$ = this.actions$.pipe(
     tap(() => console.log("events effect init")),
     ofType(eventActions.EventsActionTypes.LoadAllEvents),
     mergeMap(action => this.fbService.getEventDetails()),
-    map((courses: Event[]) => {
-      console.log(courses);
-      //new eventActions.LoadAllEventsSuccess(courses);
-    }),
-    catchError(err => of("Error in fetching details >>>>"))
+    map((courses: Event[]) => new eventActions.LoadAllEventsSuccess(courses)),
+    catchError(err => of(new eventActions.LoadAllEventsFailure(err)))
   );
+
   constructor(private actions$: Actions, private fbService: FirebaseService) {}
 }

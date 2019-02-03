@@ -20,11 +20,12 @@ export class AppComponent implements OnInit {
     private store: Store<AppState>
   ) {}
   ngOnInit(): void {
-    this.store.dispatch(new eventActions.LoadAllEvents());
     this.isVisible$ = this.notifyService.isVisible;
     this.auth.autoLogin().subscribe(success => {
       console.log("Auto login success");
     });
+
+    this.store.dispatch(new eventActions.LoadAllEvents());
     // this.store
     //   .select(state => {
     //     // console.log(state);

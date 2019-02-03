@@ -27,9 +27,8 @@ export class FirebaseService {
       switchMap(currentUser => {
         return this.http
           .get<Event[]>(
-            `https://event-booking-baf8d.firebaseio.com/events.json?auth=${
-              currentUser.token
-            }`
+            `https://event-booking-baf8d.firebaseio.com/events.json?auth=${currentUser.token ||
+              null}`
           )
           .pipe(
             map(event => {
